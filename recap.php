@@ -9,12 +9,11 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.recap.css">
     <title>Récapitulatif des produits</title>
 </head>
 
 <body>
-    <?php var_dump($_SESSION); ?>
-
     <?php
     // Si la session est vide ou n'existe pas
     if (isset($_SESSION['products']) || !empty($_SESSION['products'])) {
