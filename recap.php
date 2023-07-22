@@ -1,4 +1,5 @@
 <?php
+// Démarrer la session
 session_start();
 ?>
 
@@ -15,9 +16,12 @@ session_start();
     <?php var_dump($_SESSION); ?>
 
     <?php
+    // Si la session est vide ou n'existe pas
     if (isset($_SESSION['products']) || !empty($_SESSION['products'])) {
         echo "<p>Aucun produit en session...</p>";
-    } else {
+    }
+    // Sinon
+    else {
         echo "<table>",
         "<thead>",
         "<tr>",
@@ -30,8 +34,11 @@ session_start();
         "</thead>",
         "<tbody>";
 
+        // Parcourir les produits en session
         foreach ($_SESSION['products'] as $index => $product) {
         }
+        echo "</tbody>",
+        "</table>";
     }
     ?>
 </body>

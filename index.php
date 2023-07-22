@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    // Compare ce formulaire avec celui de traitement.php
     <h1>Ajouter un produit</h1>
     <form action="traitement.php" method="post">
         <p>
