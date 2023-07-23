@@ -6,7 +6,7 @@ session_start();
 
 // Si le formulaire a été soumis
 if (isset($_POST['submit'])) {
-    $name = filter_input(INPUT_POST, "name", FILTER_UNSAFE_RAW); // Filtrer l'entree de l'utilisateur
+    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Filtrer l'entree de l'utilisateur
     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION); // Filtrer l'entree de l'utilisateur (float) et accepter les nombres a virgule
     $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT); // Filtrer l'entree de l'utilisateur (int)
 
