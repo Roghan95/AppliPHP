@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,6 +53,18 @@
                 <input class="button" type="submit" name="submit" value="Ajouter le produit">
             </p>
         </form>
+        <aside>
+            <div class="products">
+                <?php
+                if (isset($_SESSION['products']) && !empty($_SESSION['products'])) {
+                    $total = 0;
+                    foreach ($_SESSION['products'] as $index => $product)
+                        $total += $product['qtt'];
+                }
+                echo "<h2>Produits en session : $total" . "</h2>";
+                ?>
+            </div>
+        </aside>
     </main>
 </body>
 

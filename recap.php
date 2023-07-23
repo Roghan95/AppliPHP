@@ -59,6 +59,8 @@ session_start();
             "</tr>";
             $totalGeneral += $product['total'];
         }
+
+
         // Afficher le total général
         echo "<tr>",
         "<td colspan=4 class='total-label'>Total général : </td>",
@@ -68,6 +70,18 @@ session_start();
         "</table>";
     }
     ?>
+    <aside>
+        <div class="products">
+            <?php
+            if (isset($_SESSION['products']) && !empty($_SESSION['products'])) {
+                $total = 0;
+                foreach ($_SESSION['products'] as $index => $product)
+                    $total += $product['qtt'];
+            }
+            echo "<h2>Produits en session : $total </h2>";
+            ?>
+        </div>
+    </aside>
 
 </body>
 
