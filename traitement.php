@@ -1,7 +1,7 @@
 <?php
 // Démarrer la session
 session_start();
-// var_dump($_POST);
+var_dump($_POST);
 
 
 // Si le formulaire a été soumis
@@ -16,7 +16,8 @@ if (isset($_POST['submit'])) {
             "name" => $name,
             "price" => $price,
             "qtt" => $qtt,
-            "total" => $price * $qtt
+            "total" => $price * $qtt,
+            "image" => $file
         ];
 
         // Si la session n'existe pas

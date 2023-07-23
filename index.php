@@ -48,15 +48,10 @@
                 </label>
             </p>
             <p>
-                <label>
-                    Image du produit :
-                    <input type="file" name="file" accept="image/png, image/jpeg">
-                </label>
-            </p>
-            <p>
                 <input class="button" type="submit" name="submit" value="Ajouter le produit">
             </p>
         </form>
+        <?php echo $_SESSION ?>
     </main>
 </body>
 
