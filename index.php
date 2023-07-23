@@ -32,7 +32,7 @@
             <p>
                 <label>
                     Nom du produit :
-                    <input type="text" step="name">
+                    <input type="text" name="name">
                 </label>
             </p>
             <p>
@@ -51,7 +51,6 @@
                 <input class="button" type="submit" name="submit" value="Ajouter le produit">
             </p>
         </form>
-        <?php echo $_SESSION ?>
     </main>
 </body>
 

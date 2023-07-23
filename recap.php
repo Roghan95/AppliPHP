@@ -31,11 +31,11 @@ session_start();
     <?php
     // Si la session est vide ou n'existe pas
     if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
-        echo "<p>Aucun produit en session...</p>";
+        echo "<p class='message'>Aucun produit en session...</p>";
     }
     // Sinon
     else {
-        echo "<table>",
+        echo "<table class='product-table'>",
         "<thead>",
         "<tr>",
         "<th>#</th>",
@@ -43,7 +43,6 @@ session_start();
         "<th>Prix</th>",
         "<th>Quantité</th>",
         "<th>Total</th>",
-        "<th>Supprimer</th>",
         "</tr>",
         "</thead>",
         "<tbody>";
@@ -54,21 +53,22 @@ session_start();
             echo "<tr>",
             "<td>" . $index . "</td>",
             "<td>" . $product['name'] . "</td>",
-            "<td>" . number_format($product['price'], 2, ",", "$nbsp;") . "$nbsp;€</td>",
+            "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             "<td>" . $product['qtt'] . "</td>",
-            "<td>" . number_format($product['total'], 2, ",", "$nbsp;") . "$nbsp;€</td>",
+            "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             "</tr>";
             $totalGeneral += $product['total'];
         }
         // Afficher le total général
         echo "<tr>",
-        "<td colspan=4>Total général : </td>",
-        "<td><strong>" . number_format($totalGeneral, 2, ",", "$nbsp;") . "$nbsp;€</strong></td>",
+        "<td colspan=4 class='total-label'>Total général : </td>",
+        "<td class='total-value'><strong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
         "</tr>",
         "</tbody>",
         "</table>";
     }
     ?>
+
 </body>
 
 </html>

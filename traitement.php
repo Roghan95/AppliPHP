@@ -17,7 +17,6 @@ if (isset($_POST['submit'])) {
             "price" => $price,
             "qtt" => $qtt,
             "total" => $price * $qtt,
-            "image" => $file
         ];
 
         // Si la session n'existe pas
