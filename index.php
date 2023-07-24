@@ -29,7 +29,7 @@
         </nav>
     </header>
     <main>
-        <form action="traitement.php" method="post">
+        <form action="traitement.php?action=add" method="post">
             <h1>Ajouter un produit</h1>
             <p>
                 <label>
@@ -56,12 +56,18 @@
         <aside>
             <div class="products">
                 <?php
+                $total = 0;
                 if (isset($_SESSION['products']) && !empty($_SESSION['products'])) {
                     $total = 0;
                     foreach ($_SESSION['products'] as $index => $product)
                         $total += $product['qtt'];
                 }
                 echo "<h2>Produits en session : $total" . "</h2>";
+
+                if (isset($_SESSION['message']) && !empty($_SESSION['message'])) {
+                    echo '<p class="message" style="color:#007bff;">' . $_SESSION['message'] . '</p>';
+                    $_SESSION['message'] = [];
+                }
                 ?>
             </div>
         </aside>

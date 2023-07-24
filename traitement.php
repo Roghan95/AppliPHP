@@ -1,8 +1,9 @@
 <?php
 // Démarrer la session
 session_start();
-var_dump($_POST);
+// var_dump($_POST);
 
+$action = $_GET['action'];
 
 // Si le formulaire a été soumis
 if (isset($_POST['submit'])) {
@@ -18,11 +19,26 @@ if (isset($_POST['submit'])) {
             "qtt" => $qtt,
             "total" => $price * $qtt,
         ];
-
         // Si la session n'existe pas
         $_SESSION['products'][] = $product;
+
+        $_SESSION['message'] = "Produits ajoutées avec succès";
+    } else {
+        $_SESSION['message'] = "Erreur";
     }
 }
+
+if (isset($_GET['action'])) {
+    switch ($_GET['action']) {
+        case "add":
+        case "delete":
+        case "clear":
+        case "up-qtt":
+        case "down-qtt":
+    }
+}
+
+
 
 // Redirection vers la page index.php
 header("Location: index.php");
