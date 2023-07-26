@@ -118,5 +118,5 @@ else { // Afficher le tableau récapitulatif
 </aside>
 <?php
 $content = ob_get_clean();
-$title = "Panier";
+$titre = "Panier";
 require_once('template.php');

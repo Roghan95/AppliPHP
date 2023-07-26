@@ -65,6 +65,6 @@ ob_start();
     </aside>
 </main>
 <?php
-$title = "Ajouter un produit";
+$titre = "Ajouter un produit";
 $content = ob_get_clean();
 require_once('template.php');
