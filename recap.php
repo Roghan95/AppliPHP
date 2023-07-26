@@ -1,9 +1,25 @@
-<?php session_start();
+<?php
+session_start();
 ob_start();
-$contenu = ob_get_clean();
-$title = "tableau recapitulatif";
-require_once('template.php');
+?>
 
+
+<header>
+    <a class="logo" href="index.php">
+        APPLI PHP
+    </a>
+    <nav class="navigation">
+        <ul>
+            <a href="index.php">
+                <li>AJOUT PRODUITS</li>
+            </a>
+            <a href="recap.php">
+                <li>PANIER</li>
+            </a>
+        </ul>
+    </nav>
+</header>
+<?php
 // Si la session est vide ou n'existe pas
 if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
     echo "<p class='message'>Aucun produit en session...</p>";
@@ -35,19 +51,20 @@ else { // Afficher le tableau récapitulatif
         "<td>" . number_format($product["price"], 2, ",", "&nbsp;") . "&nbsp;€</td>",
 
         // Affiche la quantité de produit et bouton + et -
-        "<td><div class='container'>
-                <form class='form-up-down' action='traitement.php?action=up-qtt' method='post' >
-                    <input class='inp-up-down' type='hidden' name='up-qtt' value='$index'>
-                            <button class='btn-up-qtt'type='submit'>+</button>
-                </form>"
+        "<td>
+                <div class='container'>
+                    <form class='form-up-down' action='traitement.php?action=up-qtt' method='post'>
+                        <input class='inp-up-down' type='hidden' name='up-qtt' value='$index'>
+                        <button class='btn-up-qtt' type='submit'>+</button>
+                    </form>"
 
             . $product["qtt"] . // Affiche la quantité du produit
 
             // Bouton moins (diminuer la quantité)
             "<form class='form-up-down' action='traitement.php?action=down-qtt' method='post'>
-                    <input class='inp-up-down' type='hidden' name='down-qtt' value='$index'>
-                            <button class='btn-down-qtt'type='submit'>-</button>
-                        </form>
+                        <input class='inp-up-down' type='hidden' name='down-qtt' value='$index'>
+                        <button class='btn-down-qtt' type='submit'>-</button>
+                    </form>
                 </div>
             </td>",
 
@@ -55,12 +72,12 @@ else { // Afficher le tableau récapitulatif
         "<td>" . number_format($product["total"], 2, ",", "&nbsp;") . "&nbsp;€</td>";
 
         // Bouton Supprimer le produit en session
-        echo "<td> 
+        echo "<td>
                 <form class='form-delete' method='POST' action='traitement.php?action=delete'>
                     <input class='inp-delete' type='hidden' name='delete' value='$index'>
-                        <button class='btn-delete'type='submit'>X</button>
+                    <button class='btn-delete' type='submit'>X</button>
                 </form>
-        </td>",
+            </td>",
         "</tr>";
         // Calculer le total général
         $totalGeneral += $product["total"];
@@ -75,8 +92,8 @@ else { // Afficher le tableau récapitulatif
 
     // Bouton Supprimer tout le contenu
     echo "<form class='form-delete' action='traitement.php?action=clear' method='post'>
-                <input class='button' type='submit' name='clear' value='Supprimer le contenu'>
-            </form>";
+    <input class='button' type='submit' name='clear' value='Supprimer le contenu'>
+</form>";
 }
 ?>
 
@@ -99,7 +116,7 @@ else { // Afficher le tableau récapitulatif
         ?>
     </div>
 </aside>
-
-</body>
-
-</html>
+<?php
+$content = ob_get_clean();
+$title = "Panier";
+require_once('template.php');

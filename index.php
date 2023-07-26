@@ -1,11 +1,23 @@
 <?php
 session_start();
-$title = "Ajouter un produit";
 ob_start();
-$contenu = ob_get_clean();
-require_once('template.php');
 ?>
 
+<header>
+    <a class="logo" href="index.php">
+        APPLI PHP
+    </a>
+    <nav class="navigation">
+        <ul>
+            <a href="index.php">
+                <li>AJOUT PRODUITS</li>
+            </a>
+            <a href="recap.php">
+                <li>PANIER</li>
+            </a>
+        </ul>
+    </nav>
+</header>
 <!-- Forumulaire d'ajout au panier -->
 <main>
     <form class="add-product" action="traitement.php?action=add" method="post">
@@ -52,6 +64,7 @@ require_once('template.php');
         </div>
     </aside>
 </main>
-</body>
-
-</html>
+<?php
+$title = "Ajouter un produit";
+$content = ob_get_clean();
+require_once('template.php');
