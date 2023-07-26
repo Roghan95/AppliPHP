@@ -19,6 +19,7 @@ ob_start();
         </ul>
     </nav>
 </header>
+
 <?php
 // Si la session est vide ou n'existe pas
 if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
@@ -100,6 +101,7 @@ else { // Afficher le tableau récapitulatif
 </main>
 <aside>
     <div class="products">
+
         <?php
         // Afficher le nombre de produits en session
         $total = 0; // Initialiser le total
@@ -114,9 +116,10 @@ else { // Afficher le tableau récapitulatif
             $_SESSION['message'] = []; // Vider le message
         }
         ?>
+
     </div>
 </aside>
 <?php
-$content = ob_get_clean();
 $titre = "Panier";
+$content = ob_get_clean();
 require_once('template.php');
