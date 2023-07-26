@@ -1,5 +1,3 @@
-<?php session_start() ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +17,7 @@
         </a>
         <nav class="navigation">
             <ul>
-                <a class="active" href="index.php">
+                <a href="index.php">
                     <li>AJOUT PRODUITS</li>
                 </a>
                 <a href="recap.php">
@@ -29,7 +27,7 @@
         </nav>
     </header>
     <main>
-        <form action="traitement.php?action=add" method="post">
+        <form class="add-product" action="traitement.php?action=add" method="post">
             <h1>Ajouter un produit</h1>
             <p>
                 <label>
@@ -49,23 +47,24 @@
                     <input type="number" name="qtt" value="1">
                 </label>
             </p>
-            <p>
+            <p class="submit">
                 <input class="button" type="submit" name="submit" value="Ajouter le produit">
             </p>
         </form>
         <aside>
             <div class="products">
                 <?php
+                session_start();
+                // Affiche le nombre de produits en session
                 $total = 0;
                 if (isset($_SESSION['products']) && !empty($_SESSION['products'])) {
-                    $total = 0;
                     foreach ($_SESSION['products'] as $index => $product)
                         $total += $product['qtt'];
                 }
-                echo "<h2>Produits en session : $total" . "</h2>";
+                echo "<h2>Produits en session : " . $total . "</h2>";
 
                 if (isset($_SESSION['message']) && !empty($_SESSION['message'])) {
-                    echo '<p class="message" style="color:#007bff;">' . $_SESSION['message'] . '</p>';
+                    echo '<p class="message" style="color:#007bff;">' . $_SESSION['message'][0] . '</p>';
                     $_SESSION['message'] = [];
                 }
                 ?>

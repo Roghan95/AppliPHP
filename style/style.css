@@ -1,9 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: sans-serif;
 }
 
+/* ------------ HEADER -----------*/
 
 header {
     background-color: #333;
@@ -43,13 +44,16 @@ header {
     color: #007bff;
 }
 
+/* ------------ FIN HEADER -----------*/
+
 body {
     background-color: #222;
     color: #fff;
     height: 100vh;
 }
 
-form {
+/* Formulaire ajout produits */
+.add-product {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
@@ -63,13 +67,38 @@ h1 {
     text-align: center;
 }
 
+.button {
+    background-color: #007bff;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 15px;
+    margin: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* ----------------------------------------- */
 
 /* Input & Label */
 label {
     display: block;
     margin: 20px;
-
 }
 
 input[type="text"],
@@ -90,22 +119,11 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-input[type="submit"] {
-    margin-top: 40px;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Affichage session */
 .products {
     width: fit-content;
     padding: 5px;
@@ -136,11 +154,13 @@ input[type="submit"]:hover {
     background-color: #333;
     color: #fff;
     text-align: left;
+    text-align: center;
 }
 
 .product-table td {
     background-color: #1a1a1a;
     color: #fff;
+    text-align: center;
 }
 
 .product-table td.total-value {
@@ -163,6 +183,57 @@ input[type="submit"]:hover {
     border-radius: 4px;
 }
 
+/* .up-qtt && .down-qtt && .clear && .delete*/
+
+.btn-up-qtt {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: #007bff;
+    height: fit-content;
+    width: fit-content;
+    padding: 3px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 800;
+}
+
+.btn-down-qtt {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: #007bff;
+    height: fit-content;
+    width: fit-content;
+    padding: 3px;
+    margin: 0 0 2px 5px;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 800;
+}
+
+.btn-delete {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: #007bff;
+    height: fit-content;
+    width: fit-content;
+    padding: 3px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 800;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 /* ---------------------------------------------- */
 
 @media only screen and (max-width: 700px) {
@@ -174,4 +245,11 @@ input[type="submit"]:hover {
     .navigation ul {
         padding: 20px;
     }
+
+    .product-table {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+
 }
